@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B31FCAC01AC49CC200960122 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B31FCABF1AC49CC200960122 /* AppDelegate.m */; };
+		B31FCAC21AC49CC200960122 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B31FCAC11AC49CC200960122 /* main.m */; };
+		B31FCAC41AC49CC200960122 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B31FCAC31AC49CC200960122 /* Images.xcassets */; };
+		B31FCAC71AC49CC200960122 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B31FCAC51AC49CC200960122 /* MainMenu.xib */; };
+		B31FCAD31AC49CC300960122 /* wirelessBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B31FCAD21AC49CC300960122 /* wirelessBrowserTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B31FCACD1AC49CC300960122 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B31FCAB11AC49CC200960122 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B31FCAB81AC49CC200960122;
+			remoteInfo = wirelessBrowser;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B31FCAB91AC49CC200960122 /* wirelessBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wirelessBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B31FCABD1AC49CC200960122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B31FCABE1AC49CC200960122 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B31FCABF1AC49CC200960122 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B31FCAC11AC49CC200960122 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B31FCAC31AC49CC200960122 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B31FCAC61AC49CC200960122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		B31FCACC1AC49CC300960122 /* wirelessBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wirelessBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B31FCAD11AC49CC300960122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B31FCAD21AC49CC300960122 /* wirelessBrowserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wirelessBrowserTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B31FCAB61AC49CC200960122 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B31FCAC91AC49CC300960122 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B31FCAB01AC49CC200960122 = {
+			isa = PBXGroup;
+			children = (
+				B31FCABB1AC49CC200960122 /* wirelessBrowser */,
+				B31FCACF1AC49CC300960122 /* wirelessBrowserTests */,
+				B31FCABA1AC49CC200960122 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B31FCABA1AC49CC200960122 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B31FCAB91AC49CC200960122 /* wirelessBrowser.app */,
+				B31FCACC1AC49CC300960122 /* wirelessBrowserTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B31FCABB1AC49CC200960122 /* wirelessBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				B31FCABE1AC49CC200960122 /* AppDelegate.h */,
+				B31FCABF1AC49CC200960122 /* AppDelegate.m */,
+				B31FCAC31AC49CC200960122 /* Images.xcassets */,
+				B31FCAC51AC49CC200960122 /* MainMenu.xib */,
+				B31FCABC1AC49CC200960122 /* Supporting Files */,
+			);
+			path = wirelessBrowser;
+			sourceTree = "<group>";
+		};
+		B31FCABC1AC49CC200960122 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B31FCABD1AC49CC200960122 /* Info.plist */,
+				B31FCAC11AC49CC200960122 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B31FCACF1AC49CC300960122 /* wirelessBrowserTests */ = {
+			isa = PBXGroup;
+			children = (
+				B31FCAD21AC49CC300960122 /* wirelessBrowserTests.m */,
+				B31FCAD01AC49CC300960122 /* Supporting Files */,
+			);
+			path = wirelessBrowserTests;
+			sourceTree = "<group>";
+		};
+		B31FCAD01AC49CC300960122 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B31FCAD11AC49CC300960122 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B31FCAB81AC49CC200960122 /* wirelessBrowser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B31FCAD61AC49CC300960122 /* Build configuration list for PBXNativeTarget "wirelessBrowser" */;
+			buildPhases = (
+				B31FCAB51AC49CC200960122 /* Sources */,
+				B31FCAB61AC49CC200960122 /* Frameworks */,
+				B31FCAB71AC49CC200960122 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wirelessBrowser;
+			productName = wirelessBrowser;
+			productReference = B31FCAB91AC49CC200960122 /* wirelessBrowser.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B31FCACB1AC49CC300960122 /* wirelessBrowserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B31FCAD91AC49CC300960122 /* Build configuration list for PBXNativeTarget "wirelessBrowserTests" */;
+			buildPhases = (
+				B31FCAC81AC49CC300960122 /* Sources */,
+				B31FCAC91AC49CC300960122 /* Frameworks */,
+				B31FCACA1AC49CC300960122 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B31FCACE1AC49CC300960122 /* PBXTargetDependency */,
+			);
+			name = wirelessBrowserTests;
+			productName = wirelessBrowserTests;
+			productReference = B31FCACC1AC49CC300960122 /* wirelessBrowserTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B31FCAB11AC49CC200960122 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Nasedkin Leonid";
+				TargetAttributes = {
+					B31FCAB81AC49CC200960122 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					B31FCACB1AC49CC300960122 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = B31FCAB81AC49CC200960122;
+					};
+				};
+			};
+			buildConfigurationList = B31FCAB41AC49CC200960122 /* Build configuration list for PBXProject "wirelessBrowser" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B31FCAB01AC49CC200960122;
+			productRefGroup = B31FCABA1AC49CC200960122 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B31FCAB81AC49CC200960122 /* wirelessBrowser */,
+				B31FCACB1AC49CC300960122 /* wirelessBrowserTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B31FCAB71AC49CC200960122 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B31FCAC41AC49CC200960122 /* Images.xcassets in Resources */,
+				B31FCAC71AC49CC200960122 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B31FCACA1AC49CC300960122 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B31FCAB51AC49CC200960122 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B31FCAC21AC49CC200960122 /* main.m in Sources */,
+				B31FCAC01AC49CC200960122 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B31FCAC81AC49CC300960122 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B31FCAD31AC49CC300960122 /* wirelessBrowserTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B31FCACE1AC49CC300960122 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B31FCAB81AC49CC200960122 /* wirelessBrowser */;
+			targetProxy = B31FCACD1AC49CC300960122 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B31FCAC51AC49CC200960122 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B31FCAC61AC49CC200960122 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B31FCAD41AC49CC300960122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B31FCAD51AC49CC300960122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B31FCAD71AC49CC300960122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = wirelessBrowser/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B31FCAD81AC49CC300960122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = wirelessBrowser/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B31FCADA1AC49CC300960122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = wirelessBrowserTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wirelessBrowser.app/Contents/MacOS/wirelessBrowser";
+			};
+			name = Debug;
+		};
+		B31FCADB1AC49CC300960122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = wirelessBrowserTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wirelessBrowser.app/Contents/MacOS/wirelessBrowser";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B31FCAB41AC49CC200960122 /* Build configuration list for PBXProject "wirelessBrowser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B31FCAD41AC49CC300960122 /* Debug */,
+				B31FCAD51AC49CC300960122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B31FCAD61AC49CC300960122 /* Build configuration list for PBXNativeTarget "wirelessBrowser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B31FCAD71AC49CC300960122 /* Debug */,
+				B31FCAD81AC49CC300960122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B31FCAD91AC49CC300960122 /* Build configuration list for PBXNativeTarget "wirelessBrowserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B31FCADA1AC49CC300960122 /* Debug */,
+				B31FCADB1AC49CC300960122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B31FCAB11AC49CC200960122 /* Project object */;
+}
