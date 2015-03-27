@@ -27,7 +27,7 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2015 Nasedkin Leonid. All rights reserved.</string>
 	<key>NSMainNibFile</key>
-	<string>MainMenu</string>
+	<string>wirelessBrowser</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 </dict>

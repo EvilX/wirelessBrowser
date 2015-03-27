@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "wirelessBrowserController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,8 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+    wirelessBrowserController *w = (wirelessBrowserController *)self.window;
+    [w initView];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
