@@ -11,8 +11,9 @@
 #import <CorePlot/CorePlot.h>
 
 @interface wirelessBrowserController : NSWindow <NSTableViewDataSource, NSTableViewDelegate,CPTPlotDataSource>
-@property CWInterface* interface;
-@property NSSet* networkList;
+@property CWInterface *interface;
+@property NSArray *networkList;
+@property NSMutableDictionary *plotData;
 @property BOOL scanEnabled;
 -(void) scannerProcess;
 -(void) initView;

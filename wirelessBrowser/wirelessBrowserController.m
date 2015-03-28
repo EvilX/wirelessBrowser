@@ -10,10 +10,14 @@
 #import <CorePlot/CorePlot.h>
 #import "wirelessBrowserController.h"
 
+#define GRAPH_SAMPLES 20
+
 @interface wirelessBrowserController ()
 @property (weak) IBOutlet NSTableView *wirelessTable;
-@property (weak) IBOutlet CPTGraphHostingView *wirelessGraph;
-@property (nonatomic, readwrite, strong) CPTXYGraph *graph;
+@property (weak) IBOutlet CPTGraphHostingView *wirelessGraph24;
+@property (weak) IBOutlet CPTGraphHostingView *wirelessGraph5;
+@property (nonatomic, readwrite, strong) CPTXYGraph *graph24; //2.4 GHz
+@property (nonatomic, readwrite, strong) CPTXYGraph *graph5; //5GHz
 
 @property (weak) IBOutlet NSToolbarItem *startScanButton;
 - (IBAction)startScan:(id)sender;
@@ -22,53 +26,84 @@
 
 @implementation wirelessBrowserController
 
-@synthesize interface, networkList, scanEnabled;
+@synthesize interface, networkList, scanEnabled, plotData;
 
 -(void) initView {
-    self.interface = [[CWInterface alloc] initWithInterfaceName:@"en1"];
-        //[self.wirelessTable setDelegate:self];
     self.wirelessTable.dataSource = self;
     self.wirelessTable.delegate = self;
     self.scanEnabled = false;
+    [self initGraph];
+    
+    NSSet *interfaces = [CWInterface interfaceNames];
+    if (interfaces.count) {
+        self.interface = [[CWInterface alloc] initWithInterfaceName:[[interfaces allObjects] objectAtIndex:0]];
+        //[self.wirelessTable setDelegate:self];
+    } else {
+        NSAlert *alert = [[NSAlert alloc] init];
+        self.interface = nil;
+        [alert addButtonWithTitle:@"OK"];
+        [alert setMessageText:NSLocalizedString(@"There is no wireless interfaces on your mac",
+                                                @"There is no wireless interfaces on your mac")];
+        [alert setAlertStyle:NSCriticalAlertStyle];
+        [alert runModal];
+        self.startScanButton.enabled = NO;
+    }
+}
 
-    CPTXYGraph *newGraph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
+-(void) initGraph {
+        //Prepare plot data
+        //2.4GHz
+    CPTXYGraph *graph24 = [[CPTXYGraph alloc] initWithFrame:CGRectZero xScaleType:CPTScaleTypeLinear
+                                                 yScaleType:CPTScaleTypeLinear];
+    CPTXYGraph *graph5 = [[CPTXYGraph alloc] initWithFrame:CGRectZero xScaleType:CPTScaleTypeLinear
+                                                 yScaleType:CPTScaleTypeLog];
     CPTTheme *theme      = [CPTTheme themeNamed:kCPTDarkGradientTheme];
-    [newGraph applyTheme:theme];
-    self.graph = newGraph;
-    self.wirelessGraph.hostedGraph = newGraph;
-    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)newGraph.defaultPlotSpace;
-
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(-1) length:CPTDecimalFromInt(16)];
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(-8) length:CPTDecimalFromInt(115)];
+    [graph24 applyTheme:theme];
+    [graph5 applyTheme:theme];
+    self.graph24 = graph24;
+    self.graph5 = graph5;
+    self.wirelessGraph24.hostedGraph = graph24;
+    self.wirelessGraph5.hostedGraph = graph5;
     
     NSNumberFormatter *formatter = [NSNumberFormatter alloc];
     [formatter setNumberStyle: NSNumberFormatterNoStyle];
     [formatter setGeneratesDecimalNumbers:FALSE];
     
-    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)newGraph.axisSet;
-    CPTXYAxis *x          = axisSet.xAxis;
-    x.majorIntervalLength         = CPTDecimalFromDouble(1);
-    x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(2.0);
-    x.minorTicksPerInterval       = 0;
-    x.labelFormatter = formatter;
+        //Axes
+        // 2.4GHz
+    CPTXYPlotSpace *plotSpace24 = (CPTXYPlotSpace *)graph24.defaultPlotSpace;
+    plotSpace24.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(-1) length:CPTDecimalFromInt(16)];
+    plotSpace24.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(-8) length:CPTDecimalFromInt(100)];
 
-    CPTXYAxis *y = axisSet.yAxis;
-    y.majorIntervalLength         = CPTDecimalFromDouble(10);
-    y.minorTicksPerInterval       = 5;
-    y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0);
-    y.labelFormatter = formatter;
+    CPTXYAxisSet *axisSet24 = (CPTXYAxisSet *)graph24.axisSet;
+    CPTXYAxis *x24          = axisSet24.xAxis;
+    x24.majorIntervalLength         = CPTDecimalFromDouble(1);
+    x24.orthogonalCoordinateDecimal = CPTDecimalFromDouble(2.0);
+    x24.minorTicksPerInterval       = 0;
+    x24.labelFormatter = formatter;
+    CPTXYAxis *y24 = axisSet24.yAxis;
+    y24.majorIntervalLength         = CPTDecimalFromDouble(10);
+    y24.minorTicksPerInterval       = 5;
+    y24.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0);
+    y24.labelFormatter = formatter;
     
-    CPTScatterPlot *dataSourceLinePlot = [[CPTScatterPlot alloc] init];
-    dataSourceLinePlot.identifier = @"WiFi netoworks";
+        //5GHz
+    CPTXYPlotSpace *plotSpace5 = (CPTXYPlotSpace *)graph5.defaultPlotSpace;
+    plotSpace5.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(25) length:CPTDecimalFromInt(160)];
+    plotSpace5.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(-8) length:CPTDecimalFromInt(100)];
     
-    CPTMutableLineStyle *lineStyle = [dataSourceLinePlot.dataLineStyle mutableCopy];
-    lineStyle.lineWidth              = 3.0;
-    lineStyle.lineColor              = [CPTColor greenColor];
-    dataSourceLinePlot.dataLineStyle = lineStyle;
-    
-    dataSourceLinePlot.dataSource = self;
-    [newGraph addPlot:dataSourceLinePlot];
-    
+    CPTXYAxisSet *axisSet5 = (CPTXYAxisSet *)graph5.axisSet;
+    CPTXYAxis *x5          = axisSet5.xAxis;
+    x5.majorIntervalLength         = CPTDecimalFromDouble(10);
+    x5.orthogonalCoordinateDecimal = CPTDecimalFromDouble(2.0);
+    x5.minorTicksPerInterval       = 0;
+    x5.labelFormatter = formatter;
+
+    CPTXYAxis *y5 = axisSet5.yAxis;
+    y5.majorIntervalLength         = CPTDecimalFromDouble(10);
+    y5.minorTicksPerInterval       = 5;
+    y5.orthogonalCoordinateDecimal = CPTDecimalFromDouble(30);
+    y5.labelFormatter = formatter;
 }
 
 -(void) scannerProcess {
@@ -76,13 +111,15 @@
         return;
     }
     NSError* error;
-    self.networkList = [interface scanForNetworksWithName:nil error:&error];
-    NSLog(@"SCANNER");
+    NSSet *networkSet = [interface scanForNetworksWithName:nil error:&error];
     if (error) {
         NSLog(@"ERROR %@", [error description]);
     }
+    [self processNetoworkList:networkSet];
     [self.wirelessTable reloadData];
-    [self.graph reloadData];
+    [self preparePlot];
+    [self.graph24 reloadData];
+    [self.graph5 reloadData];
     [NSTimer scheduledTimerWithTimeInterval:1.0
                                      target:self
                                    selector:@selector(scannerProcess)
@@ -91,16 +128,94 @@
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    NSLog(@"COUNT");
     return self.networkList.count;
 }
 
--(NSString*) getNetworkValue:(NSInteger)row :(NSString*)identifier {
+-(void) processNetoworkList:(NSSet*) networkSet {
+        // Prepare network list for visualisation
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"rssi"
                                                                    ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    NSArray *sortedArray = [[self.networkList allObjects] sortedArrayUsingDescriptors:sortDescriptors];
-    CWNetwork* net = [sortedArray objectAtIndex:row];
+    self.networkList = [[networkSet allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+}
+
+-(void) preparePlot {
+    CGFloat green = 1.0;
+    CGFloat red = 0;
+    CGFloat blue = 0;
+    self.plotData = [[NSMutableDictionary alloc] init];
+        //Build plots and plot values
+    for (int i = 0; i < self.networkList.count; i++) {
+        NSString *ssid = [self getNetworkValue:i :@"ssid"];
+        NSString *band = [self getNetworkValue:i :@"band"];
+        NSString *ident = [NSString stringWithFormat:@"%@(%@)", ssid, band];
+        long channel = [self getNetworkValue:i :@"channelNumber_only"].integerValue;
+        double rssi = [self getNetworkValue:i :@"rssi_only"].floatValue;
+        double noise = [self getNetworkValue:i :@"noise_only"].floatValue;
+        if (rssi < noise) {
+            continue;
+        }
+//        long width = [self getNetworkValue:i :@"channelWidth"].integerValue;
+        
+        CPTScatterPlot *dataSourceLinePlot = [[CPTScatterPlot alloc] init];
+        dataSourceLinePlot.identifier = ident;
+    
+        CPTMutableLineStyle *lineStyle = [dataSourceLinePlot.dataLineStyle mutableCopy];
+        lineStyle.lineWidth              = 1.0;
+            //build color
+        if (red == 0.5) {
+            if (blue == 0.5) {
+                if (green > 0.0) {
+                    green = green - 0.2f;
+                }
+            } else {
+                blue = blue + 0.2f;
+            }
+        } else {
+            red = red + 0.2f;
+        }
+        
+        
+        lineStyle.lineColor = [CPTColor colorWithComponentRed:red green:green blue:blue alpha:1.0];
+        dataSourceLinePlot.dataLineStyle = lineStyle;
+        dataSourceLinePlot.title = ssid;
+        dataSourceLinePlot.dataSource = self;
+        
+        if (channel < 16) {
+            if (![self.graph24 plotWithIdentifier:ident]) {
+                [self.graph24 addPlot:dataSourceLinePlot];
+            }
+        } else {
+            if (![self.graph5 plotWithIdentifier:ident]) {
+                [self.graph5 addPlot:dataSourceLinePlot];
+            }
+        }
+            // Create plot data
+            // 10 points per graph
+        NSMutableArray *data = [[NSMutableArray alloc] init];
+        double minX = channel - 2;
+        double maxX = channel + 2;
+        double step = (maxX - minX) / GRAPH_SAMPLES;
+        double lastY = -1;
+        for (double x = minX; x < (maxX + step); x += step) {
+//            double y = ((-(pow((x - channel), 2)) + 4)) * pow(5 - 10/exp(noise/rssi), 2);
+            double y = ((-(pow((x - channel), 2)) + 4) * 25) * ((100 + rssi)/100);
+            if ((lastY == 0) && (y <= 0)) {
+                break;
+            }
+            if (y < 0 ) {
+                y = 0;
+            }
+            lastY = y;
+            NSArray *sample = @[[NSNumber numberWithDouble:x], [NSNumber numberWithDouble:y]];
+            [data addObject:sample];
+        }
+        [self.plotData setObject:data forKey:ident];
+    }
+}
+
+-(NSString*) getNetworkValue:(NSInteger)row :(NSString*)identifier {
+    CWNetwork* net = [self.networkList objectAtIndex:row];
     CWChannel *channel = net.wlanChannel;
     if ([identifier isEqualToString:@"ssid"]) {
         return (id)net.ssid;
@@ -135,13 +250,30 @@
     if ([identifier isEqualToString:@"channelNumber_only"]) {
         return (id)[NSString stringWithFormat:@"%li", (long)channel.channelNumber];
     }
+    if ([identifier isEqualToString:@"channelWidth"]) {
+        long width;
+        if (channel.channelWidth == kCWChannelWidth20MHz) {
+            width = 20;
+        } else if (channel.channelWidth == kCWChannelWidth40MHz) {
+            width = 40;
+        } else if (channel.channelWidth == kCWChannelWidth80MHz) {
+            width = 80;
+        } else if (channel.channelWidth == kCWChannelWidth160MHz) {
+            width = 160;
+        } else if (channel.channelWidth == kCWChannelWidthUnknown) {
+            width = 22;
+        }
+        return (id)[NSString stringWithFormat:@"%li", width];
+    }
     if ([identifier isEqualToString:@"rssi"]) {
         return (id)[NSString stringWithFormat:@"%li/%li", net.rssiValue, net.noiseMeasurement];
     }
     if ([identifier isEqualToString:@"rssi_only"]) {
         return (id)[NSString stringWithFormat:@"%li", net.rssiValue];
     }
-    
+    if ([identifier isEqualToString:@"noise_only"]) {
+        return (id)[NSString stringWithFormat:@"%li", net.noiseMeasurement];
+    }
     if ([identifier isEqualToString:@"country"]) {
         return (id)net.countryCode;
     }
@@ -203,7 +335,7 @@
         return (id)[sec componentsJoinedByString:@"\n"];
     }
     
-    return @"";
+    return @" ";
 }
 
 -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
@@ -211,8 +343,11 @@
 }
 
 -(NSUInteger) numberOfRecordsForPlot:(CPTPlot *)plot {
-    NSLog(@"COUNT PLOT");
-    return self.networkList.count * 3;
+    NSArray *data = [self.plotData objectForKey:plot.identifier];
+    if (data) {
+        return data.count;
+    }
+    return 0;
 }
 
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row {
@@ -223,10 +358,10 @@
 }
 
 - (IBAction)startScan:(id)sender {
-    if (!self.scanEnabled) {
+    if (!self.scanEnabled && self.interface) {
         self.scanEnabled = true;
         self.startScanButton.image = [NSImage imageNamed:@"NSStatusUnavailable"];
-        self.startScanButton.label = @"Stop scan";
+        self.startScanButton.label = NSLocalizedString(@"Stop scan", @"Stop scan");
         [NSTimer scheduledTimerWithTimeInterval:0.5
                                          target:self
                                        selector:@selector(scannerProcess)
@@ -235,33 +370,38 @@
     } else {
         self.scanEnabled = false;
         self.startScanButton.image = [NSImage imageNamed:@"NSStatusAvailable"];
-        self.startScanButton.label = @"Start scan";
+        self.startScanButton.label = NSLocalizedString(@"Start scan", @"Start scan");
     }
 }
 
 -(double)doubleForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)idx {
-    
-    NSInteger d = idx % 3;
-    NSLog(@"%li %li", idx, d);
-    double xVal = 0;
-    double yVal = 0;
-    NSString *channel = [self getNetworkValue:(idx/3) :@"channelNumber_only"];
-    if (d == 0) {
-        xVal = channel.integerValue - 1;
-    } else if (d == 2) {
-        xVal = channel.integerValue + 1;
-    } else {
-        yVal = 100 + [self getNetworkValue:(idx/3) :@"rssi_only"].integerValue;
-        xVal = channel.integerValue;
+    NSArray *data = [self.plotData objectForKey:plot.identifier];
+    if ([self.plotData objectForKey:plot.identifier]) {
+        NSArray *sample = [data objectAtIndex:idx];
+        if (fieldEnum == CPTScatterPlotFieldX) {
+            NSNumber *value = [sample objectAtIndex:0];
+            return [value doubleValue];
+        } else {
+            NSNumber *value = [sample objectAtIndex:1];
+            return [value doubleValue];
+        }
     }
-    NSLog(@"%f %f", xVal, yVal);
-    if (fieldEnum == CPTScatterPlotFieldX) {
-        return xVal;
-    } else {
-        return yVal;
+    return 0;
+}
+
+-(CPTLayer*)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)idx {
+    NSArray *data = [self.plotData objectForKey:plot.identifier];
+    if ([self.plotData objectForKey:plot.identifier]) {
+        if ((data.count/2) == idx) {
+            CPTTextLayer *label = [[CPTTextLayer alloc] initWithText:(NSString*)plot.identifier];
+            CPTMutableTextStyle *titleText = [CPTMutableTextStyle textStyle];
+            titleText.color = [CPTColor whiteColor];
+            label.textStyle = titleText;
+
+            return label;
+        }
     }
-//    return @{ @(CPTScatterPlotFieldX): @(xVal),
-//              @(CPTScatterPlotFieldY): @(yVal) };
+    return nil;
 }
 
 @end

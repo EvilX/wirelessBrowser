@@ -14,6 +14,8 @@
 		B31FCAD31AC49CC300960122 /* wirelessBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B31FCAD21AC49CC300960122 /* wirelessBrowserTests.m */; };
 		B31FCADE1AC49D0A00960122 /* wirelessBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = B31FCADD1AC49D0A00960122 /* wirelessBrowserController.m */; };
 		B31FCAE91AC49E7800960122 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31FCAE61AC49E6A00960122 /* CorePlot.framework */; };
+		B36D92441AC6371200E55B92 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B36D92401AC6371200E55B92 /* Localizable.strings */; };
+		B36D92451AC6371200E55B92 /* wirelessBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = B36D92421AC6371200E55B92 /* wirelessBrowser.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,14 +49,17 @@
 		B31FCABF1AC49CC200960122 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B31FCAC11AC49CC200960122 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B31FCAC31AC49CC200960122 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B31FCAC61AC49CC200960122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/wirelessBrowser.xib; sourceTree = "<group>"; };
 		B31FCACC1AC49CC300960122 /* wirelessBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wirelessBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31FCAD11AC49CC300960122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B31FCAD21AC49CC300960122 /* wirelessBrowserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wirelessBrowserTests.m; sourceTree = "<group>"; };
 		B31FCADC1AC49D0A00960122 /* wirelessBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wirelessBrowserController.h; sourceTree = "<group>"; };
 		B31FCADD1AC49D0A00960122 /* wirelessBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wirelessBrowserController.m; sourceTree = "<group>"; };
 		B31FCADF1AC49E6A00960122 /* CorePlot.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePlot.xcodeproj; path = "../tools/core-plot/framework/CorePlot.xcodeproj"; sourceTree = "<group>"; };
-		B3C681F31AC4A8ED001A4CD8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/wirelessBrowser.strings; sourceTree = "<group>"; };
+		B36D92391AC634C900E55B92 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/wirelessBrowser.xib; sourceTree = "<group>"; };
+		B36D923D1AC635EA00E55B92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/wirelessBrowser.xib; sourceTree = "<group>"; };
+		B36D923E1AC635F000E55B92 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/wirelessBrowser.xib; sourceTree = "<group>"; };
+		B36D92411AC6371200E55B92 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = Localizable.strings; sourceTree = "<group>"; };
+		B36D92431AC6371200E55B92 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = wirelessBrowser.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +109,7 @@
 				B31FCADC1AC49D0A00960122 /* wirelessBrowserController.h */,
 				B31FCADD1AC49D0A00960122 /* wirelessBrowserController.m */,
 				B31FCAC51AC49CC200960122 /* wirelessBrowser.xib */,
+				B36D923F1AC6371200E55B92 /* ru.lproj */,
 				B31FCABC1AC49CC200960122 /* Supporting Files */,
 			);
 			path = wirelessBrowser;
@@ -142,6 +148,15 @@
 				B31FCAE81AC49E6A00960122 /* UnitTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B36D923F1AC6371200E55B92 /* ru.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				B36D92401AC6371200E55B92 /* Localizable.strings */,
+				B36D92421AC6371200E55B92 /* wirelessBrowser.xib */,
+			);
+			path = ru.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +222,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = B31FCAB01AC49CC200960122;
 			productRefGroup = B31FCABA1AC49CC200960122 /* Products */;
@@ -248,6 +264,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B31FCAC41AC49CC200960122 /* Images.xcassets in Resources */,
+				B36D92441AC6371200E55B92 /* Localizable.strings in Resources */,
+				B36D92451AC6371200E55B92 /* wirelessBrowser.xib in Resources */,
 				B31FCAC71AC49CC200960122 /* wirelessBrowser.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,8 +312,25 @@
 		B31FCAC51AC49CC200960122 /* wirelessBrowser.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B31FCAC61AC49CC200960122 /* Base */,
-				B3C681F31AC4A8ED001A4CD8 /* ru */,
+				B36D92391AC634C900E55B92 /* en */,
+				B36D923D1AC635EA00E55B92 /* Base */,
+				B36D923E1AC635F000E55B92 /* ru */,
+			);
+			name = wirelessBrowser.xib;
+			sourceTree = "<group>";
+		};
+		B36D92401AC6371200E55B92 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B36D92411AC6371200E55B92 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		B36D92421AC6371200E55B92 /* wirelessBrowser.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B36D92431AC6371200E55B92 /* ru */,
 			);
 			name = wirelessBrowser.xib;
 			sourceTree = "<group>";
@@ -387,7 +422,7 @@
 				INFOPLIST_FILE = wirelessBrowser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Wireless Browser";
 			};
 			name = Debug;
 		};
@@ -399,7 +434,7 @@
 				INFOPLIST_FILE = wirelessBrowser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Wireless Browser";
 			};
 			name = Release;
 		};

@@ -19,9 +19,9 @@
         </customObject>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
-                <menuItem title="Wireless Browser" id="1Xt-HY-uBw">
+                <menuItem title="wirelessBrowser" id="1Xt-HY-uBw">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Wireless Browser" systemMenu="apple" id="uQy-DD-JDr">
+                    <menu key="submenu" title="wirelessBrowser" systemMenu="apple" id="uQy-DD-JDr">
                         <items>
                             <menuItem title="About Wireless Browser" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
