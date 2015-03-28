@@ -16,6 +16,8 @@
 		B31FCAE91AC49E7800960122 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31FCAE61AC49E6A00960122 /* CorePlot.framework */; };
 		B36D92441AC6371200E55B92 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B36D92401AC6371200E55B92 /* Localizable.strings */; };
 		B36D92451AC6371200E55B92 /* wirelessBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = B36D92421AC6371200E55B92 /* wirelessBrowser.xib */; };
+		B36D92461AC6389E00E55B92 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31FCAE61AC49E6A00960122 /* CorePlot.framework */; };
+		B36D92471AC6389E00E55B92 /* CorePlot.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B31FCAE61AC49E6A00960122 /* CorePlot.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +42,28 @@
 			remoteGlobalIDString = 0730F600109492D800E95162;
 			remoteInfo = UnitTests;
 		};
+		B36D92481AC6389E00E55B92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B31FCADF1AC49E6A00960122 /* CorePlot.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = CorePlot;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B36D924A1AC6389E00E55B92 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B36D92471AC6389E00E55B92 /* CorePlot.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B31FCAB91AC49CC200960122 /* wirelessBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wirelessBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B36D92461AC6389E00E55B92 /* CorePlot.framework in Frameworks */,
 				B31FCAE91AC49E7800960122 /* CorePlot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,10 +193,12 @@
 				B31FCAB51AC49CC200960122 /* Sources */,
 				B31FCAB61AC49CC200960122 /* Frameworks */,
 				B31FCAB71AC49CC200960122 /* Resources */,
+				B36D924A1AC6389E00E55B92 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B36D92491AC6389E00E55B92 /* PBXTargetDependency */,
 			);
 			name = wirelessBrowser;
 			productName = wirelessBrowser;
@@ -305,6 +331,11 @@
 			isa = PBXTargetDependency;
 			target = B31FCAB81AC49CC200960122 /* wirelessBrowser */;
 			targetProxy = B31FCACD1AC49CC300960122 /* PBXContainerItemProxy */;
+		};
+		B36D92491AC6389E00E55B92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CorePlot;
+			targetProxy = B36D92481AC6389E00E55B92 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
