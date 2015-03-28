@@ -66,7 +66,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B31FCAB91AC49CC200960122 /* wirelessBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wirelessBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B31FCAB91AC49CC200960122 /* Wireless Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wireless Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31FCABD1AC49CC200960122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B31FCABE1AC49CC200960122 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B31FCABF1AC49CC200960122 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		B31FCABA1AC49CC200960122 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B31FCAB91AC49CC200960122 /* wirelessBrowser.app */,
+				B31FCAB91AC49CC200960122 /* Wireless Browser.app */,
 				B31FCACC1AC49CC300960122 /* wirelessBrowserTests.xctest */,
 			);
 			name = Products;
@@ -202,7 +202,7 @@
 			);
 			name = wirelessBrowser;
 			productName = wirelessBrowser;
-			productReference = B31FCAB91AC49CC200960122 /* wirelessBrowser.app */;
+			productReference = B31FCAB91AC49CC200960122 /* Wireless Browser.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B31FCACB1AC49CC300960122 /* wirelessBrowserTests */ = {

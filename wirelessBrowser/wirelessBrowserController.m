@@ -342,15 +342,9 @@
     return [self getNetworkValue:row:tableColumn.identifier];
 }
 
--(NSUInteger) numberOfRecordsForPlot:(CPTPlot *)plot {
-    NSArray *data = [self.plotData objectForKey:plot.identifier];
-    if (data) {
-        return data.count;
-    }
-    return 0;
-}
 
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row {
+        // Make two lines for long security
     NSString *value = [self getNetworkValue:row :@"security"];
     NSInteger lines = [[value componentsSeparatedByCharactersInSet:
                         [NSCharacterSet newlineCharacterSet]] count];
@@ -358,6 +352,7 @@
 }
 
 - (IBAction)startScan:(id)sender {
+        // Scan button action
     if (!self.scanEnabled && self.interface) {
         self.scanEnabled = true;
         self.startScanButton.image = [NSImage imageNamed:@"NSStatusUnavailable"];
@@ -374,7 +369,19 @@
     }
 }
 
+    // PLOT
+
+-(NSUInteger) numberOfRecordsForPlot:(CPTPlot *)plot {
+        // Plot number of records
+    NSArray *data = [self.plotData objectForKey:plot.identifier];
+    if (data) {
+        return data.count;
+    }
+    return 0;
+}
+
 -(double)doubleForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)idx {
+        // Plot data
     NSArray *data = [self.plotData objectForKey:plot.identifier];
     if ([self.plotData objectForKey:plot.identifier]) {
         NSArray *sample = [data objectAtIndex:idx];
@@ -390,6 +397,7 @@
 }
 
 -(CPTLayer*)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)idx {
+        // Plot data label
     NSArray *data = [self.plotData objectForKey:plot.identifier];
     if ([self.plotData objectForKey:plot.identifier]) {
         if ((data.count/2) == idx) {
